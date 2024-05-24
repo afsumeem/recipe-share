@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 const Header = () => {
   return (
     <div className="navbar bg-base-100">
@@ -24,11 +26,14 @@ const Header = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Home</a>
+              <NavLink to="/">Home</NavLink>
             </li>
 
             <li>
-              <a>Recipes</a>
+              <NavLink to="/recipes">Recipes</NavLink>
+            </li>
+            <li>
+              <NavLink to="/add-recipes">Add-Recipes</NavLink>
             </li>
           </ul>
         </div>
@@ -37,15 +42,26 @@ const Header = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li>
-            <a>Home</a>
+            <NavLink to="/">Home</NavLink>
           </li>
 
           <li>
-            <a>Recipes</a>
+            <NavLink to="/recipes">Recipes</NavLink>
+          </li>
+          <li>
+            <NavLink to="/add-recipes">Add-Recipes</NavLink>
           </li>
         </ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end gap-2">
+        <p>60</p>
+        <p>User</p>
+        <div className="avatar">
+          <div className="w-10 rounded-full">
+            <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+          </div>
+        </div>
+        <a className="btn">Logout</a>
         <a className="btn">Google Login</a>
       </div>
     </div>
