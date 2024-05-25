@@ -1,6 +1,53 @@
 import { NavLink } from "react-router-dom";
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+  signOut,
+  onAuthStateChanged,
+} from "firebase/auth";
+import auth from "../../firebase/firebase.auth";
+import { useEffect, useState } from "react";
 
 const Header = () => {
+  const [user, setUser] = useState(null);
+  // google auth provider
+  const provider = new GoogleAuthProvider();
+
+  const handleGoogleSignIn = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const user = result.user;
+        setUser(user);
+        // console.log(user);
+      })
+      .catch((error) => {
+        console.log("error", error.message);
+      });
+  };
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(null);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  // sign out
+  const handleSignOut = () => {
+    signOut(auth)
+      .then((result) => {
+        setUser(null);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -54,15 +101,22 @@ const Header = () => {
         </ul>
       </div>
       <div className="navbar-end gap-2">
-        <p>60</p>
-        <p>User</p>
-        <div className="avatar">
-          <div className="w-10 rounded-full">
-            <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-          </div>
-        </div>
-        <a className="btn">Logout</a>
-        <a className="btn">Google Login</a>
+        {user && (
+          <>
+            <p>60</p>
+            <p>{user.displayName}</p>
+            <div className="avatar">
+              <div className="w-10 rounded-full">
+                <img src={user.photoURL} alt="userImg" />
+              </div>
+            </div>
+          </>
+        )}
+        {user ? (
+          <button onClick={handleSignOut}>Logout</button>
+        ) : (
+          <button onClick={handleGoogleSignIn}>Google Login</button>
+        )}
       </div>
     </div>
   );

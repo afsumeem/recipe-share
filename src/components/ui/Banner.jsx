@@ -24,7 +24,7 @@ const Banner = () => {
           </NavLink>
           <NavLink
             to="/add-recipes"
-            className="border border-orange-600 bg-orange-500 px-3 py-2  rounded hover:bg-orange-600 duration-300"
+            className="border border-orange-600 bg-orange-600 px-3 py-2  rounded hover:bg-orange-700 duration-300"
           >
             Add Recipes
           </NavLink>

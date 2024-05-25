@@ -10,11 +10,11 @@ const Counter = () => {
         </div>
         <div className="flex gap-5 flex-col items-center justify-center w-full p-10 border border-orange-600 rounded-lg">
           <CountUp end={100} />
-          Total Recipes
+          Total Users
         </div>
         <div className="flex gap-5 flex-col items-center justify-center w-full p-10 border border-orange-600 rounded-lg">
           <CountUp end={100} />
-          Total Recipes
+          Total Categories
         </div>
       </div>
     </div>
