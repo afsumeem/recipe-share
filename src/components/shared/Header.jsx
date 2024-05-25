@@ -10,6 +10,7 @@ import { useEffect, useState } from "react";
 
 const Header = () => {
   const [user, setUser] = useState(null);
+  const [userData, setUserData] = useState(null);
   // google auth provider
   const provider = new GoogleAuthProvider();
 
@@ -20,10 +21,9 @@ const Header = () => {
         setUser(user);
         // console.log(user);
         const image = user.photoURL;
-        const coin = 50;
         const name = user.displayName;
         const email = user.email;
-        const newUser = { image, coin, name, email };
+        const newUser = { image, coin: 50, name, email };
 
         fetch("http://localhost:5000/users", {
           method: "POST",
@@ -42,17 +42,35 @@ const Header = () => {
       });
   };
 
+  // useEffect(() => {
+  //   const unsubscribe = onAuthStateChanged(auth, (user) => {
+  //     if (user) {
+  //       setUser(user);
+  //     } else {
+  //       setUser(null);
+  //     }
+  //   });
+
+  //   return () => unsubscribe();
+  // }, []);
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
+        fetch(`http://localhost:5000/users/${user.email}`)
+          .then((res) => res.json())
+          .then((data) => {
+            setUserData(data);
+          });
       } else {
         setUser(null);
+        setUserData(null);
       }
     });
 
     return () => unsubscribe();
-  }, []);
+  }, [user, userData]);
 
   // sign out
   const handleSignOut = () => {
@@ -121,11 +139,11 @@ const Header = () => {
       <div className="navbar-end gap-2">
         {user && (
           <>
-            <p>60</p>
-            <p>{user.displayName}</p>
+            <p>{userData?.coin}</p>
+            <p>{userData?.name}</p>
             <div className="avatar">
               <div className="w-10 rounded-full">
-                <img src={user.photoURL} alt="userImg" />
+                <img src={userData?.image} alt="userImg" />
               </div>
             </div>
           </>

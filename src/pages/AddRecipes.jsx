@@ -1,7 +1,9 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import { onAuthStateChanged } from "firebase/auth";
+import auth from "../firebase/firebase.auth";
 
 // image hosting api
 const image_hosting_key = import.meta.env.VITE_Imgbb;
@@ -10,6 +12,18 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 const AddRecipes = () => {
   const { register, handleSubmit, reset } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [userEmail, setUserEmail] = useState("");
+
+  // user email
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUserEmail(user.email);
+      }
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   const onSubmit = async (data) => {
     setIsSubmitting(true);
@@ -30,9 +44,9 @@ const AddRecipes = () => {
         youtube: data.youtube,
         country: data.country,
         category: data.category,
-        creatorEmail:,
-        watchCount:0,
-        purchased_by:[]
+        creatorEmail: userEmail,
+        watchCount: 0,
+        purchased_by: [],
       };
 
       const uploadRecipe = await axios.post(
