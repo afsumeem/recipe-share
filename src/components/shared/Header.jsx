@@ -19,6 +19,23 @@ const Header = () => {
         const user = result.user;
         setUser(user);
         // console.log(user);
+        const image = user.photoURL;
+        const coin = 50;
+        const name = user.displayName;
+        const email = user.email;
+        const newUser = { image, coin, name, email };
+
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(newUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+          });
       })
       .catch((error) => {
         console.log("error", error.message);
@@ -42,6 +59,7 @@ const Header = () => {
     signOut(auth)
       .then((result) => {
         setUser(null);
+        console.log(result);
       })
       .catch((error) => {
         console.log(error);

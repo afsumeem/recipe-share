@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import auth from "../firebase/firebase.auth";
 import Swal from "sweetalert2";
+import PropTypes from "prop-types";
 
 const PrivateRoute = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -31,6 +32,10 @@ const PrivateRoute = ({ children }) => {
     text: "You need to be logged in to access this page.",
   });
   return <Navigate to="/" />;
+};
+
+PrivateRoute.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export default PrivateRoute;
