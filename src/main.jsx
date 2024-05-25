@@ -9,6 +9,8 @@ import AllRecipes from "./pages/AllRecipes.jsx";
 import Layout from "./components/Layout/Layout.jsx";
 import PrivateRoute from "./privateRoute/PrivateRoute.jsx";
 import RecipeDetail from "./pages/RecipeDetail.jsx";
+import PurchaseCoins from "./pages/PurchaseCoins.jsx";
+import Payment from "./pages/Payment.jsx";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +31,22 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddRecipes />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/purchase-coin",
+        element: (
+          <PrivateRoute>
+            <PurchaseCoins />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "payment",
+        element: (
+          <PrivateRoute>
+            <Payment />
           </PrivateRoute>
         ),
       },
