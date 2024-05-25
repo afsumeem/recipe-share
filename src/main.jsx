@@ -7,6 +7,7 @@ import Home from "./pages/Home.jsx";
 import AddRecipes from "./pages/AddRecipes.jsx";
 import AllRecipes from "./pages/AllRecipes.jsx";
 import Layout from "./components/Layout/Layout.jsx";
+import PrivateRoute from "./privateRoute/PrivateRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -23,7 +24,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/add-recipes",
-        element: <AddRecipes />,
+        element: (
+          <PrivateRoute>
+            <AddRecipes />
+          </PrivateRoute>
+        ),
       },
     ],
   },
