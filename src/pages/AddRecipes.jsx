@@ -51,7 +51,12 @@ const AddRecipes = () => {
 
       const uploadRecipe = await axios.post(
         "http://localhost:5000/recipes",
-        recipeInfo
+        recipeInfo,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
       );
 
       if (uploadRecipe.data.insertedId) {

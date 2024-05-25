@@ -19,11 +19,8 @@ const Header = () => {
       .then((result) => {
         const user = result.user;
         setUser(user);
-        // console.log(user);
-        const image = user.photoURL;
-        const name = user.displayName;
-        const email = user.email;
-        const newUser = { image, coin: 50, name, email };
+        const { photoURL, displayName, email } = user;
+        const newUser = { image: photoURL, coin: 50, name: displayName, email };
 
         fetch("http://localhost:5000/users", {
           method: "POST",
@@ -34,7 +31,18 @@ const Header = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            fetch("http://localhost:5000/generate-token", {
+              method: "POST",
+              headers: {
+                "content-type": "application/json",
+              },
+              body: JSON.stringify({ email }),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                localStorage.setItem("token", data.token);
+                fetchUserData(email, data.token);
+              });
           });
       })
       .catch((error) => {
@@ -42,27 +50,31 @@ const Header = () => {
       });
   };
 
-  // useEffect(() => {
-  //   const unsubscribe = onAuthStateChanged(auth, (user) => {
-  //     if (user) {
-  //       setUser(user);
-  //     } else {
-  //       setUser(null);
-  //     }
-  //   });
+  //
 
-  //   return () => unsubscribe();
-  // }, []);
+  const fetchUserData = (email, token) => {
+    fetch(`http://localhost:5000/users/${email}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setUserData(data);
+      })
+      .catch((error) => {
+        console.error("Error fetching user data:", error);
+      });
+  };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        setUser(user);
-        fetch(`http://localhost:5000/users/${user.email}`)
-          .then((res) => res.json())
-          .then((data) => {
-            setUserData(data);
-          });
+        const token = localStorage.getItem("token");
+        if (token) {
+          setUser(user);
+          fetchUserData(user.email, token);
+        }
       } else {
         setUser(null);
         setUserData(null);
@@ -70,14 +82,14 @@ const Header = () => {
     });
 
     return () => unsubscribe();
-  }, [user, userData]);
+  }, []);
 
   // sign out
   const handleSignOut = () => {
     signOut(auth)
       .then((result) => {
         setUser(null);
-        console.log(result);
+        localStorage.removeItem("token");
       })
       .catch((error) => {
         console.log(error);
