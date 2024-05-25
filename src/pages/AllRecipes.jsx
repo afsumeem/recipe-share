@@ -1,16 +1,7 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { NavLink, useLoaderData } from "react-router-dom";
 
 const AllRecipes = () => {
-  const [recipes, setRecipes] = useState([]);
-
-  useEffect(() => {
-    fetch(`http://localhost:5000/recipes`)
-      .then((res) => res.json())
-      .then((data) => {
-        setRecipes(data);
-      });
-  }, []);
+  const recipes = useLoaderData();
 
   return (
     <div>
@@ -25,7 +16,9 @@ const AllRecipes = () => {
               <p>Purchased_by :{recipe?.purchased_by?.length}</p>
               <p>creator email: {recipe?.creatorEmail}</p>
               <p>country: {recipe?.country}</p>
-              <button>View the Recipe</button>
+              <NavLink to={`/recipe-detail/${recipe._id}`}>
+                View the Recipe
+              </NavLink>
             </div>
           </div>
         ))}

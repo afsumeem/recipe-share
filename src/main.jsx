@@ -8,6 +8,7 @@ import AddRecipes from "./pages/AddRecipes.jsx";
 import AllRecipes from "./pages/AllRecipes.jsx";
 import Layout from "./components/Layout/Layout.jsx";
 import PrivateRoute from "./privateRoute/PrivateRoute.jsx";
+import RecipeDetail from "./pages/RecipeDetail.jsx";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/recipes",
+        loader: () => fetch("http://localhost:5000/recipes"),
         element: <AllRecipes />,
       },
       {
@@ -27,6 +29,16 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddRecipes />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/recipe-detail/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/recipes/${params.id}`),
+        element: (
+          <PrivateRoute>
+            <RecipeDetail />
           </PrivateRoute>
         ),
       },
