@@ -79,8 +79,8 @@ const AllRecipes = () => {
 
   // filter
 
-  const handleCategoryChange = (event) => {
-    setSelectedCategory(event.target.value);
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
   };
 
   const handleCountryChange = (event) => {
@@ -146,28 +146,14 @@ const AllRecipes = () => {
   }, [hasMore]);
 
   return (
-    <div>
-      <div>
-        <input
-          type="text"
-          placeholder="Search recipe by title..."
-          value={searchTerm}
-          onChange={handleSearchChange}
-          className="border border-gray-500"
-        />
-
-        {/* filter by recipe category */}
-        <select value={selectedCategory} onChange={handleCategoryChange}>
-          <option value="">All Categories</option>
-          {uniqueCategories.map((category, index) => (
-            <option key={index} value={category}>
-              {category}
-            </option>
-          ))}
-        </select>
-
+    <div className="container mx-auto mt-10">
+      <div className="flex justify-between mb-4">
         {/* filter by country */}
-        <select value={selectedCountry} onChange={handleCountryChange}>
+        <select
+          value={selectedCountry}
+          onChange={handleCountryChange}
+          className="border p-2 rounded-lg border-orange-600 text-orange-600 focus:outline-2 outline-orange-600"
+        >
           <option value="">All Countries</option>
           {uniqueCountries.map((country, index) => (
             <option key={index} value={country}>
@@ -175,6 +161,52 @@ const AllRecipes = () => {
             </option>
           ))}
         </select>
+
+        {/* search bar */}
+        <input
+          type="text"
+          placeholder="Search recipe by title..."
+          value={searchTerm}
+          onChange={handleSearchChange}
+          className="border w-full md:w1/2 lg:w-1/3 p-2 rounded-lg border-orange-600 placeholder:text-orange-600 focus:outline-2 outline-orange-600"
+        />
+      </div>
+      <hr />
+
+      {/* filter by recipe category */}
+      {/* <select value={selectedCategory} onChange={handleCategoryChange}>
+        <option value="">All Categories</option>
+        {uniqueCategories.map((category, index) => (
+          <option key={index} value={category}>
+            {category}
+          </option>
+        ))}
+      </select> */}
+
+      <div className="flex gap-2 my-4 flex-wrap">
+        <button
+          className={`px-4 py-2 rounded-lg border ${
+            selectedCategory === ""
+              ? "bg-orange-600 border-orange-600 text-white"
+              : "bg-white border-gray-300"
+          }`}
+          onClick={() => handleCategoryChange("")}
+        >
+          All Categories
+        </button>
+        {uniqueCategories?.map((category, index) => (
+          <button
+            key={index}
+            className={`px-4 py-2 rounded-lg border ${
+              selectedCategory === category
+                ? "bg-orange-600 border-orange-600 text-white"
+                : "bg-white border-gray-300"
+            }`}
+            onClick={() => handleCategoryChange(category)}
+          >
+            {category}
+          </button>
+        ))}
       </div>
 
       <h2>all recipes</h2>

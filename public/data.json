@@ -1,0 +1,311 @@
+[
+  {
+    "name": "Chocolate Cake",
+    "image": "https://res.cloudinary.com/dghf2lzu3/image/upload/v1716691046/recipe-share-project/chocolate-cake_tygzd3.jpg",
+    "detail": "A rich and moist chocolate cake.",
+    "purchased_by": ["meem@gmail.com", "afsu@gmail.com", "abc@gmail.com"],
+    "country": "USA",
+    "watchCount": 3,
+    "category": "desserts",
+    "creatorEmail": "baker@gmail.com",
+    "youtube": "GgOIdkV5PPQ?si=YJ_ffoJqoEEwtC6l"
+  },
+  {
+    "name": "Vegan Tacos",
+    "image": "https://res.cloudinary.com/dghf2lzu3/image/upload/v1716691069/recipe-share-project/vegan-tacos_xtk4zx.jpg",
+    "detail": "Delicious and healthy vegan tacos.",
+    "purchased_by": ["meem@gmail.com"],
+    "country": "Mexico",
+    "watchCount": 1,
+    "category": "vegan",
+    "creatorEmail": "chefvegan@gmail.com",
+    "youtube": "SkMB1-xHv5s?si=DteVtkgiOpJPIOuS"
+  },
+  {
+    "name": "Grilled Steak",
+    "image": "https://res.cloudinary.com/dghf2lzu3/image/upload/v1716691044/recipe-share-project/grilled-steak_g78hzn.jpg",
+    "detail": "Juicy and tender grilled steak.",
+    "purchased_by": [
+      "meem@gmail.com",
+      "afsu@gmail.com",
+      "abc@gmail.com",
+      "afana@gmail.com",
+      "abcdef@gmail.com"
+    ],
+    "country": "Argentina",
+    "watchCount": 5,
+    "category": "Meat",
+    "creatorEmail": "grillmaster@gmail.com",
+    "youtube": "NyM2NXb7czc?si=-TTm0cy7mNw50Mfv"
+  },
+  {
+    "name": "Shrimp Scampi",
+    "image": "https://res.cloudinary.com/dghf2lzu3/image/upload/v1716691066/recipe-share-project/Shrimp-Scampi_ruo0t1.jpg",
+    "detail": "A classic Italian shrimp scampi.",
+    "purchased_by": [
+      "meem@gmail.com",
+      "afsu@gmail.com",
+      "afsu2@gmail.com",
+      "afsu3@gmail.com",
+      "afsu4@gmail.com",
+      "afsu5@gmail.com",
+      "afsu7@gmail.com"
+    ],
+    "country": "Italy",
+    "watchCount": 7,
+    "category": "sea-food",
+    "creatorEmail": "seafoodlover@gmail.com",
+    "youtube": "tLnoCXXPItA?si=hnfWwzzbGUEZQewU"
+  },
+  {
+    "name": "Chicken Noodle Soup",
+    "image": "https://res.cloudinary.com/dghf2lzu3/image/upload/v1716691041/recipe-share-project/CHICKEN-noodle-soup_x3n9sb.jpg",
+    "detail": "A comforting chicken noodle soup.",
+    "purchased_by": [],
+    "country": "USA",
+    "watchCount": 0,
+    "category": "soups-stews",
+    "creatorEmail": "soupchef@gmail.com",
+    "youtube": "O2XXgo_u7b0?si=tSi7qq8dkEQwbLFO"
+  },
+  {
+    "name": "Caesar Salad",
+    "image": "https://res.cloudinary.com/dghf2lzu3/image/upload/v1716691065/recipe-share-project/salad_wgkicf.jpg",
+    "detail": "A classic Caesar salad.",
+    "purchased_by": ["meem@gmail.com", "afsu@gmail.com"],
+    "country": "Italy",
+    "watchCount": 2,
+    "category": "salads",
+    "creatorEmail": "saladmaster@gmail.com",
+    "youtube": "H3ZfEPiX_qc?si=G5skdclRAahfI119"
+  },
+  {
+    "name": "Nachos",
+    "image": "https://res.cloudinary.com/dghf2lzu3/image/upload/v1716691053/recipe-share-project/nachos_mzzxh8.jpg",
+    "detail": "Loaded nachos with cheese and toppings.",
+    "purchased_by": [],
+    "country": "Mexico",
+    "watchCount": 0,
+    "category": "snacks",
+    "creatorEmail": "snacklover@gmail.com",
+    "youtube": "wGjcGjn8YGs?si=NH3uOP5tb4qoftC6"
+  },
+  {
+    "name": "Sourdough Bread",
+    "image": "https://res.cloudinary.com/dghf2lzu3/image/upload/v1716691033/recipe-share-project/bread_ve5yrr.jpg",
+    "detail": "Homemade sourdough bread.",
+    "purchased_by": ["meem@gmail.com", "afsu@gmail.com", "abc@gmail.com"],
+    "country": "France",
+    "watchCount": 3,
+    "category": "baking-breads",
+    "creatorEmail": "breadbaker@gmail.com",
+    "youtube": "0bonMAeMpZU?si=sJRTxObTrtgx5GQA"
+  },
+  {
+    "name": "Sushi Rolls",
+    "image": "https://res.cloudinary.com/dghf2lzu3/image/upload/v1716691066/recipe-share-project/sushi_nzgevl.jpg",
+    "detail": "Delicious sushi rolls.",
+    "purchased_by": [
+      "meem@gmail.com",
+      "afsu@gmail.com",
+      "abc@gmail.com",
+      "hello@gmail.com"
+    ],
+    "country": "Japan",
+    "watchCount": 4,
+    "category": "ethnic-cuisine",
+    "creatorEmail": "sushichef@gmail.com",
+    "youtube": "EGeNKGosXA8?si=pVBhAnCn23hc3mif"
+  },
+  {
+    "name": "Kale Smoothie",
+    "image": "https://res.cloudinary.com/dghf2lzu3/image/upload/v1716691050/recipe-share-project/mango-kale-smoothie-image_lxvws2.jpg",
+    "detail": "A healthy and refreshing kale smoothie.",
+    "purchased_by": [],
+    "country": "USA",
+    "watchCount": 0,
+    "category": "healthy-recipes",
+    "creatorEmail": "healthyguru@gmail.com",
+    "youtube": "DUQaWmUz-7o?si=gj3O51J3h8Nc-qW6"
+  },
+  {
+    "name": "Margarita",
+    "image": "https://res.cloudinary.com/dghf2lzu3/image/upload/v1716691052/recipe-share-project/Margarita_mc60p0.jpg",
+    "detail": "A classic margarita cocktail.",
+    "purchased_by": ["meem@gmail.com", "afsu@gmail.com", "abc@gmail.com"],
+    "country": "Mexico",
+    "watchCount": 3,
+    "category": "beverages",
+    "creatorEmail": "bartender@gmail.com",
+    "youtube": "zzAwspdDFO4?si=v0kGAqJt_c4yceRg"
+  },
+  {
+    "name": "Pavlova",
+    "image": "https://res.cloudinary.com/dghf2lzu3/image/upload/v1716691061/recipe-share-project/Pavlova_hq6ixb.jpg",
+    "detail": "A light and airy pavlova.",
+    "purchased_by": [],
+    "country": "Australia",
+    "watchCount": 0,
+    "category": "desserts",
+    "creatorEmail": "dessertchef@gmail.com",
+    "youtube": "SjskNTkF9MM?si=pEST60epZ7uyHqm2"
+  },
+  {
+    "name": "Vegan Burger",
+    "image": "https://res.cloudinary.com/dghf2lzu3/image/upload/v1716691069/recipe-share-project/Vegan_Burger_fk330t.jpg",
+    "detail": "A delicious and hearty vegan burger.",
+    "purchased_by": ["meem@gmail.com", "afsu@gmail.com"],
+    "country": "USA",
+    "watchCount": 2,
+    "category": "vegan",
+    "creatorEmail": "plantbasedchef@gmail.com",
+    "youtube": "KpQRvv_2Jw8?si=sD3cXOiOabS8lijZ"
+  },
+  {
+    "name": "BBQ Ribs",
+    "image": "https://res.cloudinary.com/dghf2lzu3/image/upload/v1716691064/recipe-share-project/bbq-ribs_mqwr6b.jpg",
+    "detail": "Tender and flavorful BBQ ribs.",
+    "purchased_by": [],
+    "country": "USA",
+    "watchCount": 0,
+    "category": "Meat",
+    "creatorEmail": "bbqmaster@gmail.com",
+    "youtube": "3DDqj5rA1ak?si=d4ozFTvFjkN8TIJX"
+  },
+  {
+    "name": "Lobster Bisque",
+    "image": "https://res.cloudinary.com/dghf2lzu3/image/upload/v1716691050/recipe-share-project/Lobster_Bisque_mc8u0h.jpg",
+    "detail": "A creamy and rich lobster bisque.",
+    "purchased_by": [
+      "meem@gmail.com",
+      "afsu@gmail.com",
+      "abc@gmail.com",
+      "afana@gmail.com"
+    ],
+    "country": "France",
+    "watchCount": 4,
+    "category": "sea-food",
+    "creatorEmail": "seafoodchef@gmail.com",
+    "youtube": "FZNS89WeM5E?si=8SIBViHtc3b8FXOK"
+  },
+  {
+    "name": "Tomato Basil Soup",
+    "image": "https://res.cloudinary.com/dghf2lzu3/image/upload/v1716691067/recipe-share-project/Tomato_Basil_Soup_v9uk0i.jpg",
+    "detail": "A classic tomato basil soup.",
+    "purchased_by": [],
+    "country": "Italy",
+    "watchCount": 0,
+    "category": "soups-stews",
+    "creatorEmail": "italianchef@gmail.com",
+    "youtube": "guwu8I2VDTI?si=BbvXFCK14cy1BIID"
+  },
+  {
+    "name": "Greek Salad",
+    "image": "https://res.cloudinary.com/dghf2lzu3/image/upload/v1716691037/recipe-share-project/greeksalad_x2ofd9.jpg",
+    "detail": "A fresh and tangy Greek salad.",
+    "purchased_by": [],
+    "country": "Greece",
+    "watchCount": 0,
+    "category": "salads",
+    "creatorEmail": "greeksaladchef@gmail.com",
+    "youtube": "kwq4vl610iY?si=z8E2D0HihXS8SqAZ"
+  },
+  {
+    "name": "Stuffed Jalapenos",
+    "image": "https://res.cloudinary.com/dghf2lzu3/image/upload/v1716691064/recipe-share-project/stuffedjalapenos_qjmrr0.jpg",
+    "detail": "Spicy and cheesy stuffed jalapenos.",
+    "purchased_by": ["meem@gmail.com"],
+    "country": "Mexico",
+    "watchCount": 1,
+    "category": "snacks",
+    "creatorEmail": "spicychef@gmail.com",
+    "youtube": "7yX2fTWjSgo?si=1Efu3KFt-TX1wscE"
+  },
+  {
+    "name": "French Baguette",
+    "image": "https://res.cloudinary.com/dghf2lzu3/image/upload/v1716691043/recipe-share-project/French_Baguette_va95sx.jpg",
+    "detail": "A crusty and soft French baguette.",
+    "purchased_by": [],
+    "country": "France",
+    "watchCount": 0,
+    "category": "baking-breads",
+    "creatorEmail": "frenchbaker@gmail.com",
+    "youtube": "5FR__Gt0CSo?si=jzEyEhDjT7VDIUzG"
+  },
+  {
+    "name": "Pad Thai",
+    "image": "https://res.cloudinary.com/dghf2lzu3/image/upload/v1716691059/recipe-share-project/Pad-Thai_awh8ln.jpg",
+    "detail": "A classic Thai noodle dish.",
+    "purchased_by": [
+      "meem@gmail.com",
+      "afsu@gmail.com",
+      "abc@gmail.com",
+      "afana@gmail.com",
+      "abcdef@gmail.com",
+      "afana22@gmail.com",
+      "abcdef@gmail.com",
+      "afana6@gmail.com",
+      "abc2@gmail.com"
+    ],
+    "country": "Thailand",
+    "watchCount": 9,
+    "category": "ethnic-cuisine",
+    "creatorEmail": "thaichef@gmail.com",
+    "youtube": "F86GfZIph8o?si=kCASvC92ilds5R2p"
+  },
+  {
+    "name": "Apple Pie",
+    "image": "https://res.cloudinary.com/dghf2lzu3/image/upload/v1716691035/recipe-share-project/Apple-Pie-Recipe-Video_ohygui.jpg",
+    "detail": "A classic homemade apple pie.",
+    "purchased_by": [],
+    "country": "USA",
+    "watchCount": 0,
+    "category": "desserts",
+    "creatorEmail": "piechef@gmail.com",
+    "youtube": "VFQsDAADPLM?si=7ybYHXo9QFqrXeZw"
+  },
+  {
+    "name": "Vegan Brownies",
+    "image": "https://res.cloudinary.com/dghf2lzu3/image/upload/v1716691068/recipe-share-project/Vegan_Brownies_k4ezs6.jpg",
+    "detail": "Rich and fudgy vegan brownies.",
+    "purchased_by": ["meem@gmail.com", "afsu@gmail.com", "abc@gmail.com"],
+    "country": "USA",
+    "watchCount": 3,
+    "category": "vegan",
+    "creatorEmail": "veganbaker@gmail.com",
+    "youtube": "A9ahkIpNQVE?si=QKQKrOasCDHWlmbs"
+  },
+  {
+    "name": "Beef Wellington",
+    "image": "https://res.cloudinary.com/dghf2lzu3/image/upload/v1716691040/recipe-share-project/Beef_Wellington_zc8wjf.jpg",
+    "detail": "A luxurious beef wellington.",
+    "purchased_by": [],
+    "country": "UK",
+    "watchCount": 0,
+    "category": "Meat",
+    "creatorEmail": "luxurychef@gmail.com",
+    "youtube": "IDttZSCUYBM?si=kXTVq0yy67SZ01Nn"
+  },
+  {
+    "name": "Fish Tacos",
+    "image": "https://res.cloudinary.com/dghf2lzu3/image/upload/v1716691046/recipe-share-project/fish_tacos_mp2n5j.jpg",
+    "detail": "Crispy and flavorful fish tacos.",
+    "purchased_by": [],
+    "country": "Mexico",
+    "watchCount": 0,
+    "category": "sea-food",
+    "creatorEmail": "tacochef@gmail.com",
+    "youtube": "pWuQVJU2J0k?si=FbsAppujz6QM3onD"
+  },
+  {
+    "name": "Minestrone Soup",
+    "image": "https://res.cloudinary.com/dghf2lzu3/image/upload/v1716691045/recipe-share-project/Classic-Minestrone-Soup-13720e5_fwmlqs.jpg",
+    "detail": "A hearty and healthy minestrone soup.",
+    "purchased_by": ["meem@gmail.com", "afsu@gmail.com"],
+    "country": "Italy",
+    "watchCount": 2,
+    "category": "soups-stews",
+    "creatorEmail": "soupchef@gmail.com",
+    "youtube": "_UMwoA1O-xI?si=MzWSErybSIZkLCYN"
+  }
+]
