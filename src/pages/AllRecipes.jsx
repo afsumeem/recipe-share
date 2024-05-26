@@ -251,7 +251,9 @@ const AllRecipes = () => {
                 {recipe.name}
               </h2>
               <p>Purchased by: [{recipe.purchased_by.join(", ")}]</p>
-              <p className=" mt-2">Recipe Creator - {recipe.creatorEmail}</p>
+              <p className=" mt-2 italic text-orange-600">
+                Recipe Creator - {recipe.creatorEmail}
+              </p>
               <p className="flex items-center gap-1 font-bold mt-3">
                 <IoLocationOutline /> {recipe.country}
               </p>

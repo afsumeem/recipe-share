@@ -2,22 +2,16 @@ import { useLoaderData } from "react-router-dom";
 import { FaRegHeart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import { useCallback, useEffect, useState } from "react";
+import { IoLocationOutline } from "react-icons/io5";
 
 const RecipeDetail = () => {
   const recipe = useLoaderData();
   const [recipes, setRecipes] = useState([]);
-  const [showLikedText, setShowLikedText] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
   const [similarRecipes, setSimilarRecipes] = useState([]);
   //
 
   const toggleFavorite = () => {
-    if (!isFavorite) {
-      setShowLikedText(true);
-      setTimeout(() => {
-        setShowLikedText(false);
-      }, 1000); // Hide "Liked" text after 1 second
-    }
     setIsFavorite((prev) => !prev);
   };
 
@@ -42,46 +36,92 @@ const RecipeDetail = () => {
   }, [filterSimilarRecipes]);
 
   return (
-    <div>
-      <h2>Recipe details page</h2>
-      {/* <iframe
-        width="713"
-        height="401"
-        src="https://www.youtube.com/embed/GgOIdkV5PPQ?si=YJ_ffoJqoEEwtC6l"
-        title="MOIST CHOCOLATE CAKE"
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerPolicy="strict-origin-when-cross-origin"
-        allowfullscreen
-      ></iframe> */}
-      <p>{recipe.name}</p>
-      <p>{recipe.country}</p>
-      <button
-        onClick={toggleFavorite}
-        style={{ background: "none", border: "none", cursor: "pointer" }}
-      >
-        {isFavorite ? <FaHeart /> : <FaRegHeart />}
-      </button>
-      {showLikedText && <p>Liked..</p>}
+    <div className="container mx-auto my-10">
+      <h2 className="text-orange-600 text-2xl font-bold uppercase mt-10 mb-16  relative text-center">
+        Recipe Details
+        <span className="absolute left-1/2 transform -translate-x-1/2 -bottom-1 w-14 border-b-[3px] border-orange-600"></span>
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <iframe
+          width="600"
+          height="450"
+          src={`https://www.youtube.com/embed/${recipe?.youtube}`}
+          title="MOIST CHOCOLATE CAKE"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        />
+        {/* recipe details */}
+        <div className="border p-5">
+          <div className="flex gap-3 justify-between">
+            <h2 className="text-orange-600 text-2xl font-bold mb-3">
+              {recipe.name}
+            </h2>
+            <button
+              onClick={toggleFavorite}
+              style={{ background: "none", border: "none", cursor: "pointer" }}
+            >
+              {isFavorite ? (
+                <FaHeart className="text-3xl text-orange-600" />
+              ) : (
+                <FaRegHeart className="text-3xl text-orange-600" />
+              )}
+            </button>
+          </div>
+
+          <p className="text-orange-600 text-xl mb-5">{recipe.detail}</p>
+          <p>Purchased by: [{recipe.purchased_by.join(", ")}]</p>
+          <p className="mt-1">
+            Watch Count:
+            <span className="font-semibold ">{recipe?.watchCount}</span>
+          </p>
+          <p className=" mt-2 italic text-orange-600">
+            Recipe Creator - {recipe.creatorEmail}
+          </p>
+          <p className="flex items-center gap-1 font-bold mt-3">
+            <IoLocationOutline /> {recipe.country}
+          </p>
+          <img className=" h-44 w-auto mt-5" src={recipe?.image} alt="" />
+        </div>
+      </div>
 
       {/*  section title*/}
 
-      <h2 className="text-orange-600 text-2xl font-bold uppercase my-8 text-center relative">
+      <h2 className="text-orange-600 text-2xl font-bold uppercase mt-20 mb-8 text-center relative">
         Similar Recipes
         <span className="absolute left-1/2 transform -translate-x-1/2 -bottom-1 w-14 border-b-[3px] border-orange-600"></span>
       </h2>
 
       {/* display similar recipes */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
         {similarRecipes.map((similarRecipe) => (
-          <div key={similarRecipe._id} className="border p-2 flex ">
+          <div
+            key={similarRecipe._id}
+            className="border p-2 flex flex-col shadow-lg"
+          >
             <img
-              className=" h-32  col-span-1 rounded-l"
+              className="rounded-l h-auto md:h-64 lg:h-56 w-full block mx-auto"
               src={similarRecipe?.image}
               alt=""
             />
-            <h4>{similarRecipe.name}</h4>
-            <p>{similarRecipe.country}</p>
+            <h4 className="text-orange-600 font-semibold text-xl my-2">
+              {similarRecipe.name}
+            </h4>
+            <p>
+              Purchased by:{" "}
+              {similarRecipe?.purchased_by.length !== 0 ? (
+                <>{similarRecipe?.purchased_by?.join(", ")}</>
+              ) : (
+                "N/A"
+              )}
+            </p>
+            <p className=" mt-2 italic text-orange-600">
+              Recipe Creator - {similarRecipe?.creatorEmail}
+            </p>
+            <p className="flex items-center gap-1 font-bold mt-3">
+              <IoLocationOutline /> {similarRecipe.country}
+            </p>
           </div>
         ))}
       </div>
