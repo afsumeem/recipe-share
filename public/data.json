@@ -6,7 +6,7 @@
     "purchased_by": ["meem@gmail.com", "afsu@gmail.com", "abc@gmail.com"],
     "country": "USA",
     "watchCount": 3,
-    "category": "desserts",
+    "category": "Desserts",
     "creatorEmail": "baker@gmail.com",
     "youtube": "GgOIdkV5PPQ?si=YJ_ffoJqoEEwtC6l"
   },
@@ -17,7 +17,7 @@
     "purchased_by": ["meem@gmail.com"],
     "country": "Mexico",
     "watchCount": 1,
-    "category": "vegan",
+    "category": "Vegan",
     "creatorEmail": "chefvegan@gmail.com",
     "youtube": "SkMB1-xHv5s?si=DteVtkgiOpJPIOuS"
   },
@@ -53,7 +53,7 @@
     ],
     "country": "Italy",
     "watchCount": 7,
-    "category": "sea-food",
+    "category": "Sea-food",
     "creatorEmail": "seafoodlover@gmail.com",
     "youtube": "tLnoCXXPItA?si=hnfWwzzbGUEZQewU"
   },
@@ -64,7 +64,7 @@
     "purchased_by": [],
     "country": "USA",
     "watchCount": 0,
-    "category": "soups-stews",
+    "category": "Soups-stews",
     "creatorEmail": "soupchef@gmail.com",
     "youtube": "O2XXgo_u7b0?si=tSi7qq8dkEQwbLFO"
   },
@@ -75,7 +75,7 @@
     "purchased_by": ["meem@gmail.com", "afsu@gmail.com"],
     "country": "Italy",
     "watchCount": 2,
-    "category": "salads",
+    "category": "Salads",
     "creatorEmail": "saladmaster@gmail.com",
     "youtube": "H3ZfEPiX_qc?si=G5skdclRAahfI119"
   },
@@ -86,7 +86,7 @@
     "purchased_by": [],
     "country": "Mexico",
     "watchCount": 0,
-    "category": "snacks",
+    "category": "Snacks",
     "creatorEmail": "snacklover@gmail.com",
     "youtube": "wGjcGjn8YGs?si=NH3uOP5tb4qoftC6"
   },
@@ -97,7 +97,7 @@
     "purchased_by": ["meem@gmail.com", "afsu@gmail.com", "abc@gmail.com"],
     "country": "France",
     "watchCount": 3,
-    "category": "baking-breads",
+    "category": "Baking-breads",
     "creatorEmail": "breadbaker@gmail.com",
     "youtube": "0bonMAeMpZU?si=sJRTxObTrtgx5GQA"
   },
@@ -113,7 +113,7 @@
     ],
     "country": "Japan",
     "watchCount": 4,
-    "category": "ethnic-cuisine",
+    "category": "Ethnic-cuisine",
     "creatorEmail": "sushichef@gmail.com",
     "youtube": "EGeNKGosXA8?si=pVBhAnCn23hc3mif"
   },
@@ -124,7 +124,7 @@
     "purchased_by": [],
     "country": "USA",
     "watchCount": 0,
-    "category": "healthy-recipes",
+    "category": "Healthy-recipes",
     "creatorEmail": "healthyguru@gmail.com",
     "youtube": "DUQaWmUz-7o?si=gj3O51J3h8Nc-qW6"
   },
@@ -135,7 +135,7 @@
     "purchased_by": ["meem@gmail.com", "afsu@gmail.com", "abc@gmail.com"],
     "country": "Mexico",
     "watchCount": 3,
-    "category": "beverages",
+    "category": "Beverages",
     "creatorEmail": "bartender@gmail.com",
     "youtube": "zzAwspdDFO4?si=v0kGAqJt_c4yceRg"
   },
@@ -146,7 +146,7 @@
     "purchased_by": [],
     "country": "Australia",
     "watchCount": 0,
-    "category": "desserts",
+    "category": "Desserts",
     "creatorEmail": "dessertchef@gmail.com",
     "youtube": "SjskNTkF9MM?si=pEST60epZ7uyHqm2"
   },
@@ -157,7 +157,7 @@
     "purchased_by": ["meem@gmail.com", "afsu@gmail.com"],
     "country": "USA",
     "watchCount": 2,
-    "category": "vegan",
+    "category": "Vegan",
     "creatorEmail": "plantbasedchef@gmail.com",
     "youtube": "KpQRvv_2Jw8?si=sD3cXOiOabS8lijZ"
   },
@@ -184,7 +184,7 @@
     ],
     "country": "France",
     "watchCount": 4,
-    "category": "sea-food",
+    "category": "Sea-food",
     "creatorEmail": "seafoodchef@gmail.com",
     "youtube": "FZNS89WeM5E?si=8SIBViHtc3b8FXOK"
   },
@@ -195,7 +195,7 @@
     "purchased_by": [],
     "country": "Italy",
     "watchCount": 0,
-    "category": "soups-stews",
+    "category": "Soups-stews",
     "creatorEmail": "italianchef@gmail.com",
     "youtube": "guwu8I2VDTI?si=BbvXFCK14cy1BIID"
   },
@@ -206,7 +206,7 @@
     "purchased_by": [],
     "country": "Greece",
     "watchCount": 0,
-    "category": "salads",
+    "category": "Salads",
     "creatorEmail": "greeksaladchef@gmail.com",
     "youtube": "kwq4vl610iY?si=z8E2D0HihXS8SqAZ"
   },
@@ -217,7 +217,7 @@
     "purchased_by": ["meem@gmail.com"],
     "country": "Mexico",
     "watchCount": 1,
-    "category": "snacks",
+    "category": "Snacks",
     "creatorEmail": "spicychef@gmail.com",
     "youtube": "7yX2fTWjSgo?si=1Efu3KFt-TX1wscE"
   },
@@ -228,7 +228,7 @@
     "purchased_by": [],
     "country": "France",
     "watchCount": 0,
-    "category": "baking-breads",
+    "category": "Baking-breads",
     "creatorEmail": "frenchbaker@gmail.com",
     "youtube": "5FR__Gt0CSo?si=jzEyEhDjT7VDIUzG"
   },
@@ -249,7 +249,7 @@
     ],
     "country": "Thailand",
     "watchCount": 9,
-    "category": "ethnic-cuisine",
+    "category": "Ethnic-cuisine",
     "creatorEmail": "thaichef@gmail.com",
     "youtube": "F86GfZIph8o?si=kCASvC92ilds5R2p"
   },
@@ -260,7 +260,7 @@
     "purchased_by": [],
     "country": "USA",
     "watchCount": 0,
-    "category": "desserts",
+    "category": "Desserts",
     "creatorEmail": "piechef@gmail.com",
     "youtube": "VFQsDAADPLM?si=7ybYHXo9QFqrXeZw"
   },
@@ -271,7 +271,7 @@
     "purchased_by": ["meem@gmail.com", "afsu@gmail.com", "abc@gmail.com"],
     "country": "USA",
     "watchCount": 3,
-    "category": "vegan",
+    "category": "Vegan",
     "creatorEmail": "veganbaker@gmail.com",
     "youtube": "A9ahkIpNQVE?si=QKQKrOasCDHWlmbs"
   },
@@ -293,7 +293,7 @@
     "purchased_by": [],
     "country": "Mexico",
     "watchCount": 0,
-    "category": "sea-food",
+    "category": "Sea-food",
     "creatorEmail": "tacochef@gmail.com",
     "youtube": "pWuQVJU2J0k?si=FbsAppujz6QM3onD"
   },
@@ -304,7 +304,7 @@
     "purchased_by": ["meem@gmail.com", "afsu@gmail.com"],
     "country": "Italy",
     "watchCount": 2,
-    "category": "soups-stews",
+    "category": "Soups-stews",
     "creatorEmail": "soupchef@gmail.com",
     "youtube": "_UMwoA1O-xI?si=MzWSErybSIZkLCYN"
   }

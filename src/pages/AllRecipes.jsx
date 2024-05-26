@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import { NavLink, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
+import { SlMagnifier } from "react-icons/sl";
+import { IoLocationOutline } from "react-icons/io5";
 
 const AllRecipes = () => {
   const initialRecipes = useLoaderData();
@@ -147,7 +149,7 @@ const AllRecipes = () => {
 
   return (
     <div className="container mx-auto mt-10">
-      <div className="flex justify-between mb-4">
+      <div className="flex flex-col md:flex-row justify-between mb-4 gap-3">
         {/* filter by country */}
         <select
           value={selectedCountry}
@@ -163,31 +165,24 @@ const AllRecipes = () => {
         </select>
 
         {/* search bar */}
-        <input
-          type="text"
-          placeholder="Search recipe by title..."
-          value={searchTerm}
-          onChange={handleSearchChange}
-          className="border w-full md:w1/2 lg:w-1/3 p-2 rounded-lg border-orange-600 placeholder:text-orange-600 focus:outline-2 outline-orange-600"
-        />
+        <div className="relative w-full md:w1/2 lg:w-1/3">
+          <input
+            type="text"
+            placeholder="Search recipe by title..."
+            value={searchTerm}
+            onChange={handleSearchChange}
+            className="border w-full p-2 rounded-lg border-orange-600 placeholder:text-orange-600 focus:outline-2 outline-orange-600 pl-10"
+          />
+          <SlMagnifier className="absolute left-3 top-1/2 transform -translate-y-1/2 text-orange-600" />
+        </div>
       </div>
       <hr />
 
-      {/* filter by recipe category */}
-      {/* <select value={selectedCategory} onChange={handleCategoryChange}>
-        <option value="">All Categories</option>
-        {uniqueCategories.map((category, index) => (
-          <option key={index} value={category}>
-            {category}
-          </option>
-        ))}
-      </select> */}
-
       <div className="flex gap-2 my-4 flex-wrap">
         <button
-          className={`px-4 py-2 rounded-lg border ${
+          className={`px-4 py-2 rounded-lg border text-sm  ${
             selectedCategory === ""
-              ? "bg-orange-600 border-orange-600 text-white"
+              ? "bg-orange-600 border-orange-600 text-white font-semibold"
               : "bg-white border-gray-300"
           }`}
           onClick={() => handleCategoryChange("")}
@@ -197,10 +192,10 @@ const AllRecipes = () => {
         {uniqueCategories?.map((category, index) => (
           <button
             key={index}
-            className={`px-4 py-2 rounded-lg border ${
+            className={`px-4 py-2 rounded-lg border text-sm  ${
               selectedCategory === category
-                ? "bg-orange-600 border-orange-600 text-white"
-                : "bg-white border-gray-300"
+                ? "bg-orange-600 border-orange-600 text-white font-semibold"
+                : "bg-white border-gray-300 "
             }`}
             onClick={() => handleCategoryChange(category)}
           >
@@ -209,29 +204,53 @@ const AllRecipes = () => {
         ))}
       </div>
 
-      <h2>all recipes</h2>
+      {/* section title */}
 
-      <div className="grid grid-cols-1">
+      <h2 className="text-orange-600 text-2xl font-bold uppercase my-8 text-center relative">
+        All Recipes
+        <span className="absolute left-1/2 transform -translate-x-1/2 -bottom-1 w-14 border-b-[3px] border-orange-600"></span>
+      </h2>
+
+      {/* display all recipes */}
+      <div className="grid grid-cols-1 gap-4">
         {filteredRecipes.map((recipe, index) => (
-          <div key={index} className="flex">
-            <img className="w-20" src={recipe.image} alt="" />
-            <div>
-              <h2>{recipe.name}</h2>
-              <p>Purchased by: {recipe.purchased_by?.length}</p>
-              <p>Creator email: {recipe.creatorEmail}</p>
-              <p>Country: {recipe.country}</p>
-              <NavLink to={`/recipe-detail/${recipe._id}`}>
-                View the Recipe
-              </NavLink>
+          <div
+            key={index}
+            className="grid grid-cols-1 md:grid-cols-3  gap-4 bg-orange-50 shadow-md rounded"
+          >
+            <img
+              className=" h-auto md:h-72 w-full col-span-1"
+              src={recipe.image}
+              alt=""
+            />
+            <div className="p-7 flex flex-col justify-center">
+              <h2 className="text-orange-600 text-2xl font-bold mb-5">
+                {recipe.name}
+              </h2>
+              <p>Purchased by: {recipe.purchased_by}</p>
+              <p>Recipe By- {recipe.creatorEmail}</p>
+              <p>
+                <IoLocationOutline /> {recipe.country}
+              </p>
 
-              <button onClick={() => handleViewRecipe(recipe)}>
+              <button
+                onClick={() => handleViewRecipe(recipe)}
+                className="border-b-2 border-orange-600 py-2   mt-5 w-fit text-orange-600 font-semibold hover:bg-orange-600 duration-300 hover:text-white hover:px-3 hover:rounded-lg"
+              >
                 View the Recipe
               </button>
             </div>
           </div>
         ))}
       </div>
-      {hasMore && <p>Loading more recipes...</p>}
+
+      {/* infinite scrolling  */}
+      {hasMore && (
+        <p className="text-center text-orange-600 font-semibold flex items-center justify-center gap-3 my-10 text-lg">
+          Loading more recipes
+          <span className="loading loading-dots loading-md mt-1"></span>
+        </p>
+      )}
     </div>
   );
 };

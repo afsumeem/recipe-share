@@ -123,17 +123,17 @@ const AddRecipes = () => {
           <option disabled value="default">
             Recipe Category
           </option>
-          <option value="desserts">Desserts</option>
-          <option value="vegan">Vegan</option>
+          <option value="Desserts">Desserts</option>
+          <option value="Vegan">Vegan</option>
           <option value="Meat">Meat</option>
-          <option value="sea-food">Sea Food</option>
-          <option value="soups-stews">Soups & Stews</option>
-          <option value="salads">Salads</option>
-          <option value="snacks">Snacks</option>
-          <option value="baking-breads">Baking & Breads</option>
-          <option value="ethnic-cuisine">Ethnic Cuisine</option>
-          <option value="healthy-recipes">Healthy Recipes</option>
-          <option value="beverages">Beverages</option>
+          <option value="Sea-food">Sea Food</option>
+          <option value="Soups-stews">Soups & Stews</option>
+          <option value="Salads">Salads</option>
+          <option value="Snacks">Snacks</option>
+          <option value="Baking-breads">Baking & Breads</option>
+          <option value="Ethnic-cuisine">Ethnic Cuisine</option>
+          <option value="Healthy-recipes">Healthy Recipes</option>
+          <option value="Beverages">Beverages</option>
         </select>
         <button disabled={isSubmitting} type="submit">
           Add Recipe
