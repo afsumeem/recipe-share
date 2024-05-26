@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { SlMagnifier } from "react-icons/sl";
 import { IoLocationOutline } from "react-icons/io5";
+import Swal from "sweetalert2";
 
 const AllRecipes = () => {
+  const navigate = useNavigate();
   const initialRecipes = useLoaderData();
   const [recipes, setRecipes] = useState(initialRecipes);
   const [page, setPage] = useState(1);
@@ -45,15 +47,25 @@ const AllRecipes = () => {
       user.email === recipe.creatorEmail ||
       recipe?.purchased_by?.includes(user.email)
     ) {
-      window.location.href = `/recipe-detail/${recipe._id}`;
+      navigate(`/recipe-detail/${recipe._id}`);
       return;
     } else if (user?.coin < 10) {
-      window.location.href = "/purchase-coins";
+      navigate("/purchase-coins");
       return;
     }
 
-    const confirm = window.confirm("Spending 10 coins to view this recipe?");
-    if (confirm) {
+    // const confirm = window.confirm("Spending 10 coins to view this recipe?");
+
+    const result = await Swal.fire({
+      title: "Confirm Purchase",
+      text: "Spending 10 coins to view this recipe?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, purchase it!",
+    });
+    if (result.isConfirmed) {
       try {
         const response = await fetch(
           `http://localhost:5000/unlock-recipe/${recipe._id}`,
@@ -69,12 +81,20 @@ const AllRecipes = () => {
 
         if (data.success) {
           setUser((prevUser) => ({ ...prevUser, coin: prevUser.coin - 10 }));
-          window.location.href = `/recipe-detail/${recipe._id}`;
+          navigate(`/recipe-detail/${recipe._id}`);
         } else {
-          alert(data.message);
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: data.message,
+          });
         }
       } catch (error) {
-        console.error("Error:", error);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong!",
+        });
       }
     }
   };
@@ -97,7 +117,7 @@ const AllRecipes = () => {
     return (
       (selectedCategory === "" || recipe.category === selectedCategory) &&
       (selectedCountry === "" || recipe.country === selectedCountry) &&
-      recipe.name.toLowerCase().includes(searchTerm.toLowerCase())
+      recipe?.name?.toLowerCase().includes(searchTerm.toLowerCase())
     );
   });
 
