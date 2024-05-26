@@ -82,37 +82,50 @@ const AddRecipes = () => {
     }
   };
   return (
-    <div>
-      <h2>add recipes</h2>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input
-          type="text"
-          placeholder="Recipe Name"
-          className="input input-bordered w-full max-w-xs"
-          {...register("name", { required: true })}
-        />
-        <input
-          type="file"
-          placeholder="Image"
-          className="input input-bordered w-full max-w-xs"
-          {...register("image", { required: true })}
-        />
+    <div className="container mx-auto my-10">
+      {/* section title */}
+      <h2 className="text-orange-600 text-2xl font-bold uppercase mt-10 mb-16  relative text-center">
+        Add New Recipe
+        <span className="absolute left-1/2 transform -translate-x-1/2 -bottom-1 w-14 border-b-[3px] border-orange-600"></span>
+      </h2>
+
+      {/* add recipe form */}
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="w-full md:w-2/3 block mx-auto"
+      >
+        <div className="flex gap-3 items-center justify-between">
+          <input
+            type="text"
+            placeholder="Recipe Name"
+            className="border w-full max-w-xs"
+            {...register("name", { required: true })}
+          />
+          <input
+            type="file"
+            placeholder="Image"
+            className=" w-full border"
+            {...register("image", { required: true })}
+          />
+        </div>
+
         <textarea
           type="text"
           placeholder="Recipe Details"
-          className="input input-bordered w-full max-w-xs"
+          className=" w-full border"
           {...register("detail", { required: true })}
         />
+        <br />
         <input
           type="text"
           placeholder="Youtube link"
-          className="input input-bordered w-full max-w-xs"
+          className="border w-full mb-3"
           {...register("youtube", { required: true })}
         />
         <input
           type="text"
           placeholder="Country"
-          className="input input-bordered w-full max-w-xs"
+          className="border w-full mb-3"
           {...register("country", { required: true })}
         />
         <select
@@ -135,7 +148,12 @@ const AddRecipes = () => {
           <option value="Healthy-recipes">Healthy Recipes</option>
           <option value="Beverages">Beverages</option>
         </select>
-        <button disabled={isSubmitting} type="submit">
+        <br />
+        <button
+          disabled={isSubmitting}
+          type="submit"
+          className="border-orange-600 border  px-3 py-2 rounded mt-5 w-full"
+        >
           Add Recipe
         </button>
       </form>
