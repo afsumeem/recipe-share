@@ -250,7 +250,14 @@ const AllRecipes = () => {
               <h2 className="text-orange-600 text-2xl font-bold mb-5">
                 {recipe.name}
               </h2>
-              <p>Purchased by: [{recipe.purchased_by.join(", ")}]</p>
+              <p>
+                Purchased by:{" "}
+                {recipe?.purchased_by.length !== 0 ? (
+                  <>{recipe?.purchased_by?.join(", ")}</>
+                ) : (
+                  "N/A"
+                )}
+              </p>
               <p className=" mt-2 italic text-orange-600">
                 Recipe Creator - {recipe.creatorEmail}
               </p>

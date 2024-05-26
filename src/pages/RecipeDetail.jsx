@@ -8,18 +8,32 @@ const RecipeDetail = () => {
   const recipe = useLoaderData();
   const [recipes, setRecipes] = useState([]);
   const [isFavorite, setIsFavorite] = useState(false);
+  const [favoriteStatuses, setFavoriteStatuses] = useState([]);
   const [similarRecipes, setSimilarRecipes] = useState([]);
   //
 
-  const toggleFavorite = () => {
+  // Toggle favorite icon
+  const toggleMainFavorite = () => {
     setIsFavorite((prev) => !prev);
+  };
+
+  const toggleFavorite = (index) => {
+    setFavoriteStatuses((prevStatuses) => {
+      const newStatuses = [...prevStatuses];
+      newStatuses[index] = !newStatuses[index];
+      return newStatuses;
+    });
   };
 
   //
   useEffect(() => {
     fetch("https://recipe-share-backend-40a5.onrender.com/recipes")
       .then((res) => res.json())
-      .then((data) => setRecipes(data));
+      .then((data) => {
+        setRecipes(data);
+
+        setFavoriteStatuses(new Array(data.length).fill(false));
+      });
   }, []);
 
   // const filterSimilarRecipes = () => {
@@ -31,6 +45,7 @@ const RecipeDetail = () => {
     );
     setSimilarRecipes(filteredRecipes);
   }, [recipes, recipe]);
+  //
   useEffect(() => {
     filterSimilarRecipes();
   }, [filterSimilarRecipes]);
@@ -62,7 +77,7 @@ const RecipeDetail = () => {
               {recipe.name}
             </h2>
             <button
-              onClick={toggleFavorite}
+              onClick={toggleMainFavorite}
               style={{ background: "none", border: "none", cursor: "pointer" }}
             >
               {isFavorite ? (
@@ -102,10 +117,10 @@ const RecipeDetail = () => {
 
       {/* display similar recipes */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-        {similarRecipes.map((similarRecipe) => (
+        {similarRecipes.map((similarRecipe, index) => (
           <div
             key={similarRecipe._id}
-            className="border p-2 flex flex-col shadow-lg"
+            className="border p-2 flex flex-col shadow-lg relative"
           >
             <img
               className="rounded-l h-auto md:h-64 lg:h-56 w-full block mx-auto"
@@ -134,6 +149,17 @@ const RecipeDetail = () => {
             <p className="flex items-center gap-1 font-bold mt-3">
               <IoLocationOutline /> {similarRecipe.country}
             </p>
+            <button
+              onClick={() => toggleFavorite(index)}
+              className="absolute right-5 bottom-5"
+              style={{ background: "none", border: "none", cursor: "pointer" }}
+            >
+              {favoriteStatuses[index] ? (
+                <FaHeart className="text-xl text-orange-600" />
+              ) : (
+                <FaRegHeart className="text-xl text-orange-600" />
+              )}
+            </button>
           </div>
         ))}
       </div>
