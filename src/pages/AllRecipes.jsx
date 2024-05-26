@@ -219,7 +219,7 @@ const AllRecipes = () => {
             className="grid grid-cols-1 md:grid-cols-3  gap-4 bg-orange-50 shadow-md rounded"
           >
             <img
-              className=" h-auto md:h-72 w-full col-span-1"
+              className=" h-auto md:h-72 w-full col-span-1 rounded-l"
               src={recipe.image}
               alt=""
             />
@@ -227,9 +227,9 @@ const AllRecipes = () => {
               <h2 className="text-orange-600 text-2xl font-bold mb-5">
                 {recipe.name}
               </h2>
-              <p>Purchased by: {recipe.purchased_by}</p>
-              <p>Recipe By- {recipe.creatorEmail}</p>
-              <p>
+              <p>Purchased by: [{recipe.purchased_by.join(", ")}]</p>
+              <p className=" mt-2">Recipe Creator - {recipe.creatorEmail}</p>
+              <p className="flex items-center gap-1 font-bold mt-3">
                 <IoLocationOutline /> {recipe.country}
               </p>
 
