@@ -41,9 +41,9 @@ const RecipeDetail = () => {
         Recipe Details
         <span className="absolute left-1/2 transform -translate-x-1/2 -bottom-1 w-14 border-b-[3px] border-orange-600"></span>
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10">
         <iframe
-          width="600"
+          width="100%"
           height="450"
           src={`https://www.youtube.com/embed/${recipe?.youtube}`}
           title="MOIST CHOCOLATE CAKE"
@@ -53,8 +53,11 @@ const RecipeDetail = () => {
           allowfullscreen
         />
         {/* recipe details */}
-        <div className="border p-5">
-          <div className="flex gap-3 justify-between">
+        <div className="">
+          <p className="bg-orange-100 w-fit px-3 py-1 rounded text-orange-600 font-semibold mb-3 text-sm">
+            {recipe.category}
+          </p>
+          <div className="flex gap-3 justify-between items-center">
             <h2 className="text-orange-600 text-2xl font-bold mb-3">
               {recipe.name}
             </h2>
@@ -74,7 +77,7 @@ const RecipeDetail = () => {
           <p>Purchased by: [{recipe.purchased_by.join(", ")}]</p>
           <p className="mt-1">
             Watch Count:
-            <span className="font-semibold ">{recipe?.watchCount}</span>
+            <span className="font-semibold "> {recipe?.watchCount}</span>
           </p>
           <p className=" mt-2 italic text-orange-600">
             Recipe Creator - {recipe.creatorEmail}
@@ -82,7 +85,11 @@ const RecipeDetail = () => {
           <p className="flex items-center gap-1 font-bold mt-3">
             <IoLocationOutline /> {recipe.country}
           </p>
-          <img className=" h-44 w-auto mt-5" src={recipe?.image} alt="" />
+          <img
+            className="h-64 lg:h-44 w-auto mt-5"
+            src={recipe?.image}
+            alt=""
+          />
         </div>
       </div>
 
@@ -105,9 +112,14 @@ const RecipeDetail = () => {
               src={similarRecipe?.image}
               alt=""
             />
-            <h4 className="text-orange-600 font-semibold text-xl my-2">
-              {similarRecipe.name}
-            </h4>
+            <div className="flex gap-1 justify-between mt-2 items-center">
+              <h4 className="text-orange-600 font-semibold text-lg my-2">
+                {similarRecipe.name}
+              </h4>
+              <p className="bg-orange-100 w-fit px-2 py-1 rounded text-orange-600 font-semibold  text-sm">
+                {similarRecipe.category}
+              </p>
+            </div>
             <p>
               Purchased by:{" "}
               {similarRecipe?.purchased_by.length !== 0 ? (
