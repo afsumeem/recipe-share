@@ -15,7 +15,7 @@ const ViewRecipe = ({ recipe }) => {
       if (user) {
         try {
           const response = await fetch(
-            `http://localhost:5000/users/${user.email}`
+            `https://recipe-share-backend-40a5.onrender.com/users/${user.email}`
           );
           const userData = await response.json();
           setUser(userData);
@@ -80,7 +80,7 @@ const ViewRecipe = ({ recipe }) => {
         setIsLoading(true);
         try {
           const response = await fetch(
-            `http://localhost:5000/unlock-recipe/${recipe._id}`,
+            `https://recipe-share-backend-40a5.onrender.com/unlock-recipe/${recipe._id}`,
             {
               method: "POST",
               headers: {

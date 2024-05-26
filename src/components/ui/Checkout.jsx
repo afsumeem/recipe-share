@@ -13,7 +13,10 @@ const Checkout = ({ dollarAmount, user }) => {
   //
   useEffect(() => {
     axios
-      .post("http://localhost:5000/create-payment-intent", { dollarAmount })
+      .post(
+        "https://recipe-share-backend-40a5.onrender.com/create-payment-intent",
+        { dollarAmount }
+      )
       .then((res) => {
         // console.log(res.data.clientSecret);
         setClientSecret(res.data.clientSecret);
@@ -61,7 +64,7 @@ const Checkout = ({ dollarAmount, user }) => {
         setError(confirmError.message);
       } else if (paymentIntent.status === "succeeded") {
         await axios.post(
-          "http://localhost:5000/update-coin-balance",
+          "https://recipe-share-backend-40a5.onrender.com/update-coin-balance",
           {
             email: user.email,
             coinAmount: dollarAmount * 100,

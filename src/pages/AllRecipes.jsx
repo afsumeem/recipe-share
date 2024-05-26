@@ -19,12 +19,15 @@ const AllRecipes = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch("http://localhost:5000/current-user", {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        });
+        const response = await fetch(
+          "https://recipe-share-backend-40a5.onrender.com/current-user",
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }
+        );
         if (response.ok) {
           const userData = await response.json();
           setUser(userData);
@@ -68,7 +71,7 @@ const AllRecipes = () => {
     if (result.isConfirmed) {
       try {
         const response = await fetch(
-          `http://localhost:5000/unlock-recipe/${recipe._id}`,
+          `https://recipe-share-backend-40a5.onrender.com/unlock-recipe/${recipe._id}`,
           {
             method: "POST",
             headers: {
@@ -131,7 +134,7 @@ const AllRecipes = () => {
   const loadMoreRecipes = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/recipes?page=${page}`,
+        `https://recipe-share-backend-40a5.onrender.com/recipes?page=${page}`,
         {
           headers: {
             "Content-Type": "application/json",

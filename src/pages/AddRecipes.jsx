@@ -50,7 +50,7 @@ const AddRecipes = () => {
       };
 
       const uploadRecipe = await axios.post(
-        "http://localhost:5000/recipes",
+        "https://recipe-share-backend-40a5.onrender.com/recipes",
         recipeInfo,
         {
           headers: {

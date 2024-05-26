@@ -23,7 +23,7 @@ const RecipeDetail = () => {
 
   //
   useEffect(() => {
-    fetch("http://localhost:5000/recipes")
+    fetch("https://recipe-share-backend-40a5.onrender.com/recipes")
       .then((res) => res.json())
       .then((data) => setRecipes(data));
   }, []);
@@ -64,12 +64,22 @@ const RecipeDetail = () => {
       </button>
       {showLikedText && <p>Liked..</p>}
 
-      {/*  */}
+      {/*  section title*/}
 
-      <h3>Similar Recipes</h3>
+      <h2 className="text-orange-600 text-2xl font-bold uppercase my-8 text-center relative">
+        Similar Recipes
+        <span className="absolute left-1/2 transform -translate-x-1/2 -bottom-1 w-14 border-b-[3px] border-orange-600"></span>
+      </h2>
+
+      {/* display similar recipes */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {similarRecipes.map((similarRecipe) => (
-          <div key={similarRecipe._id} className="border p-2">
+          <div key={similarRecipe._id} className="border p-2 flex ">
+            <img
+              className=" h-32  col-span-1 rounded-l"
+              src={similarRecipe?.image}
+              alt=""
+            />
             <h4>{similarRecipe.name}</h4>
             <p>{similarRecipe.country}</p>
           </div>

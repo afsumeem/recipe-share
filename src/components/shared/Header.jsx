@@ -22,7 +22,7 @@ const Header = () => {
         const { photoURL, displayName, email } = user;
         const newUser = { image: photoURL, coin: 50, name: displayName, email };
 
-        fetch("http://localhost:5000/users", {
+        fetch("https://recipe-share-backend-40a5.onrender.com/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -31,13 +31,16 @@ const Header = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            fetch("http://localhost:5000/generate-token", {
-              method: "POST",
-              headers: {
-                "content-type": "application/json",
-              },
-              body: JSON.stringify({ email }),
-            })
+            fetch(
+              "https://recipe-share-backend-40a5.onrender.com/generate-token",
+              {
+                method: "POST",
+                headers: {
+                  "content-type": "application/json",
+                },
+                body: JSON.stringify({ email }),
+              }
+            )
               .then((res) => res.json())
               .then((data) => {
                 localStorage.setItem("token", data.token);
@@ -53,7 +56,7 @@ const Header = () => {
   //
 
   const fetchUserData = (email, token) => {
-    fetch(`http://localhost:5000/users/${email}`, {
+    fetch(`https://recipe-share-backend-40a5.onrender.com/users/${email}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

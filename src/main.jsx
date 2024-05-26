@@ -23,7 +23,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/recipes",
-        loader: () => fetch("http://localhost:5000/recipes"),
+        loader: () =>
+          fetch("https://recipe-share-backend-40a5.onrender.com/recipes"),
         element: <AllRecipes />,
       },
       {
@@ -53,7 +54,9 @@ const router = createBrowserRouter([
       {
         path: "/recipe-detail/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/recipes/${params.id}`),
+          fetch(
+            `https://recipe-share-backend-40a5.onrender.com/recipes/${params.id}`
+          ),
         element: (
           <PrivateRoute>
             <RecipeDetail />
